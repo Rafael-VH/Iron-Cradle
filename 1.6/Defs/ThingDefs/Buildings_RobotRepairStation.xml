@@ -8,7 +8,7 @@
     <thingClass>RobotRepairStation.Building_RobotRepairStation</thingClass>
 
     <graphicData>
-      <texPath>Things/Buildings/RobotRepairStation</texPath>
+      <texPath>Things/Buildings/IronCradle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
       <shadowData>
