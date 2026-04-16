@@ -13,7 +13,7 @@ namespace RobotRepairStation
     /// IsContinuation() devuelve true para ese job, permitiendo a RimWorld
     /// reutilizar la reserva existente sin exigir una nueva.
     /// </summary>
-    public class JobDriver_RepairAtStation : JobDriver
+    public class JobDriver_RepairAtIronCradle : JobDriver
     {
         private Building_RobotRepairStation Station =>
             (Building_RobotRepairStation)job.targetA.Thing;

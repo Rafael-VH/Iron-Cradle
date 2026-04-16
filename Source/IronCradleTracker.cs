@@ -12,7 +12,7 @@ namespace RobotRepairStation
     /// Las estaciones se re-registran vía SpawnSetup en cada carga, por lo que
     /// la lista interna no necesita serialización.
     /// </summary>
-    public class RepairStationTracker : MapComponent
+    public class IronCradleTracker : MapComponent
     {
         private readonly List<Building_RobotRepairStation> stations =
             new List<Building_RobotRepairStation>();
@@ -20,19 +20,19 @@ namespace RobotRepairStation
         /// <summary>Vista de solo lectura de todas las estaciones registradas en este mapa.</summary>
         public IReadOnlyList<Building_RobotRepairStation> AllStations => stations;
 
-        public RepairStationTracker(Map map) : base(map) { }
+        public IronCradleTracker(Map map) : base(map) { }
 
         /// <summary>
         /// Obtiene el tracker del mapa. Solo crea uno nuevo si no existe,
         /// lo cual sirve de red de seguridad para casos donde el MapComponentDef
         /// no pudo instanciar el componente correctamente.
         /// </summary>
-        public static RepairStationTracker GetOrCreate(Map map)
+        public static IronCradleTracker GetOrCreate(Map map)
         {
-            var existing = map.GetComponent<RepairStationTracker>();
+            var existing = map.GetComponent<IronCradleTracker>();
             if (existing != null) return existing;
 
-            var tracker = new RepairStationTracker(map);
+            var tracker = new IronCradleTracker(map);
             map.components.Add(tracker);
             return tracker;
         }

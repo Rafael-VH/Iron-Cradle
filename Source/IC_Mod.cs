@@ -9,9 +9,9 @@ namespace RobotRepairStation
     /// se ejecuta una sola vez cuando RimWorld termina de cargar todos los mods.
     /// </summary>
     [StaticConstructorOnStartup]
-    public static class RRS_Mod
+    public static class IC_Mod
     {
-        static RRS_Mod()
+        static IC_Mod()
         {
             Log.Message("[RobotRepairStation] Mod cargado correctamente.");
 

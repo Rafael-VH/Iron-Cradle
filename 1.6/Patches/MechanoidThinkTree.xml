@@ -21,9 +21,9 @@
       <xpath>/Defs/ThinkTreeDef[defName="MechanoidPlayerControlled"]/thinkRoot/subNodes</xpath>
       <order>Prepend</order>
       <value>
-        <li Class="RobotRepairStation.ThinkNode_ConditionalNeedsRepair">
+        <li Class="IronCradle.ThinkNode_ConditionalNeedsRepair">
           <subNodes>
-            <li Class="RobotRepairStation.JobGiver_GoToRepairStation"/>
+            <li Class="IronCradle.JobGiver_GoToIronCradle"/>
           </subNodes>
         </li>
       </value>
@@ -42,9 +42,9 @@
       <xpath>/Defs/ThinkTreeDef[defName="MechanoidConstant"]/thinkRoot/subNodes/li[@Class="ThinkNode_Priority"]/subNodes</xpath>
       <order>Prepend</order>
       <value>
-        <li Class="RobotRepairStation.ThinkNode_ConditionalNeedsRepair">
+        <li Class="IronCradle.ThinkNode_ConditionalNeedsRepair">
           <subNodes>
-            <li Class="RobotRepairStation.JobGiver_GoToRepairStation"/>
+            <li Class="IronCradle.JobGiver_GoToIronCradle"/>
           </subNodes>
         </li>
       </value>

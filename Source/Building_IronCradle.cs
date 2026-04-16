@@ -18,7 +18,7 @@ namespace RobotRepairStation
     ///
     /// La lógica de curación tick a tick reside en CompRobotRepairStation para mantener las responsabilidades separadas.
     /// </summary>
-    public class Building_RobotRepairStation : Building
+    public class Building_IronCradle : Building
     {
         // ─── Estado serializable ──────────────────────────────────────────────
 
@@ -164,7 +164,7 @@ namespace RobotRepairStation
 
         /// <summary>
         /// Acepta un mecanoide como ocupante. Llamado desde
-        /// <see cref="JobDriver_GoToRepairStation"/> al llegar a la celda de interacción.
+        /// <see cref="JobDriver_GoToIronCradle"/> al llegar a la celda de interacción.
         /// </summary>
         /// <returns><c>true</c> si el mecanoide fue aceptado correctamente.</returns>
         public bool TryAcceptOccupant(Pawn mechanoid)

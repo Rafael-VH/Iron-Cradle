@@ -9,7 +9,7 @@ namespace RobotRepairStation
     /// después de que todas las definiciones XML han sido cargadas.
     /// </summary>
     [DefOf]
-    public static class RRS_JobDefOf
+    public static class IC_JobDefOf
     {
         /// <summary>
         /// Job de navegación: el mecanoide se desplaza hasta la InteractionCell de la estación.
@@ -23,9 +23,9 @@ namespace RobotRepairStation
         /// </summary>
         public static JobDef RRS_RepairAtStation;
 
-        static RRS_JobDefOf()
+        static IC_JobDefOf()
         {
-            DefOfHelper.EnsureInitializedInCtor(typeof(RRS_JobDefOf));
+            DefOfHelper.EnsureInitializedInCtor(typeof(IC_JobDefOf));
         }
     }
 }

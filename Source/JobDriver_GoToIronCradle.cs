@@ -13,7 +13,7 @@ namespace RobotRepairStation
     ///   1. GotoThing — caminar hasta la celda de interacción.
     ///   2. dock (Instant) — TryAcceptOccupant + EnqueueFirst(RepairAtStation).
     /// </summary>
-    public class JobDriver_GoToRepairStation : JobDriver
+    public class JobDriver_GoToIronCradle : JobDriver
     {
         private Building_RobotRepairStation Station =>
             (Building_RobotRepairStation)job.targetA.Thing;
