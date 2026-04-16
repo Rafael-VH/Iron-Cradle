@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<packageId>RexThar.IronCradle</packageId>
+	<name>Iron Cradle</name>
+	<author>RexThar</author>
+	<!-- <modIconPath>path/to/icon</modIconPath> -->
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+
+	<!--
+		Declarar Biotech como dependencia obligatoria impide que el mod se active
+		sin el DLC. El nodo loadAfter garantiza el orden de carga correcto.
+	-->
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+
+	<incompatibleWith>
+		<!-- <li>username.modname</li> -->
+	</incompatibleWith>
+
+	<loadBefore>
+		<!-- <li>username.modname</li> -->
+	</loadBefore>
+
+	<loadAfter>
+		<li>Ludeon.RimWorld.Biotech</li>
+	</loadAfter>
+
+	<description>
+	<![CDATA[
+	Adds the <b>Iron Cradle</b> — an automated repair station for Biotech mechanoids.
+
+	<b>How it works:</b>
+	• When a mechanoid's health drops below a configurable threshold (default: 50%), it will autonomously pathfind to the nearest available Iron Cradle.
+	• The mechanoid enters self-repair mode, consuming <b>Steel</b> and <b>power</b> over time to restore lost hit points.
+	• Multiple mechanoids can queue for repair; priority is first-come, first-served.
+
+	<b>Important notes:</b>
+	• Repairs only restore missing health — <i>lost body parts or permanent injuries are not regenerated</i>.
+	• The cradle must be powered and stocked with Steel to function.
+	• Fully configurable via Mod Settings: repair threshold, steel consumption rate, and repair speed.
+
+	---
+
+	Añade la <b>Cuna de Hierro</b>, una estación de reparación automatizada para mecanoides de Biotech.
+
+	<b>Cómo funciona:</b>
+	• Cuando la salud de un mecanoide cae por debajo de un umbral configurable (por defecto: 50%), buscará automáticamente la ruta hacia la Cuna de Hierro disponible más cercana.
+	• El mecanoide entra en modo de autorreparación, consumiendo <b>Acero</b> y <b>energía</b> con el tiempo para recuperar los puntos de vida perdidos.
+	• Varios mecanoides pueden ponerse en cola para ser reparados; la prioridad es por orden de llegada.
+
+	<b>Notas importantes:</b>
+	• Las reparaciones solo recuperan la salud perdida; <i>las partes del cuerpo perdidas o las lesiones permanentes no se regeneran</i>.
+	• La cuna debe estar alimentada y abastecida de Acero para funcionar.
+	• Totalmente configurable mediante la configuración del mod: umbral de reparación, tasa de consumo de acero y velocidad de reparación.
+
+	<color=#FFD700>Requires RimWorld 1.6 + Biotech DLC.</color>
+	]]>
+	</description>
+</ModMetaData>

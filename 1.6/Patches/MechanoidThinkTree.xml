@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    Inyecta el nodo de reparación en MechanoidPlayerControlled.
+    Este es el ThinkTree que usan los mecanoides PROPIOS del jugador (BioTech DLC).
+    MechanoidConstant es para mecanoides ENEMIGOS — no aplica aquí.
+
+    Se usan dos operaciones independientes envueltas en PatchOperationConditional:
+      1. MechanoidPlayerControlled — mecanoides del jugador (objetivo principal)
+      2. MechanoidConstant — por compatibilidad con mods que reutilicen ese árbol
+    Cada una es independiente; si una falla no bloquea la otra.
+  -->
+
+  <!-- ══════════════════════════════════════════════════
+       ÁRBOL PRINCIPAL: mecanoides del jugador (BioTech)
+       ══════════════════════════════════════════════════ -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThinkTreeDef[defName="MechanoidPlayerControlled"]</xpath>
+    <match Class="PatchOperationInsert">
+      <xpath>/Defs/ThinkTreeDef[defName="MechanoidPlayerControlled"]/thinkRoot/subNodes</xpath>
+      <order>Prepend</order>
+      <value>
+        <li Class="RobotRepairStation.ThinkNode_ConditionalNeedsRepair">
+          <subNodes>
+            <li Class="RobotRepairStation.JobGiver_GoToRepairStation"/>
+          </subNodes>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <!--
+    ÁRBOL SECUNDARIO: mecanoides enemigos / mods de terceros.
+    Comentado por defecto — descomenta si necesitas compatibilidad
+    con mods que usen MechanoidConstant para mecanoides aliados.
+  -->
+  <!--
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThinkTreeDef[defName="MechanoidConstant"]</xpath>
+    <match Class="PatchOperationInsert">
+      <xpath>/Defs/ThinkTreeDef[defName="MechanoidConstant"]/thinkRoot/subNodes/li[@Class="ThinkNode_Priority"]/subNodes</xpath>
+      <order>Prepend</order>
+      <value>
+        <li Class="RobotRepairStation.ThinkNode_ConditionalNeedsRepair">
+          <subNodes>
+            <li Class="RobotRepairStation.JobGiver_GoToRepairStation"/>
+          </subNodes>
+        </li>
+      </value>
+    </match>
+  </Operation>
+  -->
+
+</Patch>

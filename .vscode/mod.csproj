@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RootNamespace>IronCradle</RootNamespace>
+    <AssemblyName>IronCradle</AssemblyName>
+    <OutputPath>../1.6/Assemblies/</OutputPath>
+    <VersionPrefix>0.2.0.0</VersionPrefix>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Optimize>true</Optimize>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../Source/*.cs" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" />
+  </ItemGroup>
+</Project>
