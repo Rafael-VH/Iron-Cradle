@@ -9,7 +9,7 @@
     <reportString>going to iron cradle.</reportString>
     <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
     <playerInterruptible>true</playerInterruptible>
-    <checkOverrideOnDamage>false</checkOverrideOnDamage>
+    <checkOverrideOnDamage>Never</checkOverrideOnDamage>
   </JobDef>
 
   <JobDef>
@@ -20,7 +20,7 @@
     <reportString>repairing at iron cradle.</reportString>
     <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
     <playerInterruptible>true</playerInterruptible>
-    <checkOverrideOnDamage>false</checkOverrideOnDamage>
+    <checkOverrideOnDamage>Never</checkOverrideOnDamage>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
 

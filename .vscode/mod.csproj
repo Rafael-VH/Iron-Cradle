@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <LangVersion>12</LangVersion>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>9</LangVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RootNamespace>IronCradle</RootNamespace>
     <AssemblyName>IronCradle</AssemblyName>

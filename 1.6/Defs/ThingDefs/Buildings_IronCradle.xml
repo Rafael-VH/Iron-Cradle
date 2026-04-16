@@ -29,6 +29,7 @@
       <WorkToBuild>4000</WorkToBuild>
       <Flammability>0.5</Flammability>
       <Beauty>-2</Beauty>
+      <Mass>40</Mass>
     </statBases>
 
     <tickerType>Normal</tickerType>
