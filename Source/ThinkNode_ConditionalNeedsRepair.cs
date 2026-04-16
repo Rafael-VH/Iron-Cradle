@@ -2,7 +2,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     // ═══════════════════════════════════════════════════════════════════════════
     //  NODO CONDICIONAL DEL THINK TREE
@@ -38,8 +38,8 @@ namespace RobotRepairStation
                 return false;
 
             // 3. ¿Ya está en un job de reparación?
-            if (pawn.CurJob?.def == RRS_JobDefOf.RRS_RepairAtStation ||
-                pawn.CurJob?.def == RRS_JobDefOf.RRS_GoToRepairStation)
+            if (pawn.CurJob?.def == IC_JobDefOf.IC_RepairAtIronCradle ||
+                pawn.CurJob?.def == IC_JobDefOf.IC_GoToIronCradle)
                 return false;
 
             // FIX: capturar jobQueue en variable local para evitar doble evaluación
@@ -49,8 +49,8 @@ namespace RobotRepairStation
             {
                 foreach (var qj in queue)
                 {
-                    if (qj.job?.def == RRS_JobDefOf.RRS_RepairAtStation ||
-                        qj.job?.def == RRS_JobDefOf.RRS_GoToRepairStation)
+                    if (qj.job?.def == IC_JobDefOf.IC_RepairAtIronCradle ||
+                        qj.job?.def == IC_JobDefOf.IC_GoToIronCradle)
                         return false;
                 }
             }
@@ -76,17 +76,17 @@ namespace RobotRepairStation
     // ═══════════════════════════════════════════════════════════════════════════
 
     /// <summary>
-    /// Emite el job <c>RRS_GoToRepairStation</c> cuando hay una estación disponible.
+    /// Emite el job <c>IC_GoToIronCradle</c> cuando hay una estación disponible.
     /// Hijo directo de <see cref="ThinkNode_ConditionalNeedsRepair"/> en el ThinkTree.
     ///
     /// Repite la búsqueda de estación porque los ThinkNodes no comparten estado entre sí;
     /// es una limitación del sistema de ThinkTree de RimWorld.
     /// </summary>
-    public class JobGiver_GoToRepairStation : ThinkNode_JobGiver
+    public class JobGiver_GoToIronCradle : ThinkNode_JobGiver
     {
         protected override Job TryGiveJob(Pawn pawn)
         {
-            Building_RobotRepairStation station =
+            Building_IronCradle station =
                 RepairStationUtility.FindBestRepairStation(pawn);
 
             if (station == null) return null;
@@ -100,7 +100,7 @@ namespace RobotRepairStation
                 return null;
             }
 
-            return JobMaker.MakeJob(RRS_JobDefOf.RRS_GoToRepairStation, station);
+            return JobMaker.MakeJob(IC_JobDefOf.IC_GoToIronCradle, station);
         }
     }
 
@@ -111,7 +111,7 @@ namespace RobotRepairStation
 
     /// <summary>
     /// Centraliza la lógica de búsqueda de estaciones para evitar duplicarla en
-    /// <see cref="ThinkNode_ConditionalNeedsRepair"/> y <see cref="JobGiver_GoToRepairStation"/>.
+    /// <see cref="ThinkNode_ConditionalNeedsRepair"/> y <see cref="JobGiver_GoToIronCradle"/>.
     /// </summary>
     public static class RepairStationUtility
     {
@@ -134,12 +134,12 @@ namespace RobotRepairStation
         /// Retorna <c>null</c> si el mapa del pawn es <c>null</c> (p. ej. en caravana)
         /// o si ninguna estación cumple los criterios.
         /// </summary>
-        public static Building_RobotRepairStation FindBestRepairStation(Pawn pawn)
+        public static Building_IronCradle FindBestRepairStation(Pawn pawn)
         {
             if (pawn?.Map == null) return null;
 
-            var tracker = RepairStationTracker.GetOrCreate(pawn.Map);
-            Building_RobotRepairStation best = null;
+            var tracker = IronCradleTracker.GetOrCreate(pawn.Map);
+            Building_IronCradle best = null;
             int   bestPriority = int.MaxValue;
             float bestDist     = float.MaxValue;
 
@@ -152,7 +152,7 @@ namespace RobotRepairStation
                 // CanReach es relativamente caro; va al final, después de los filtros baratos.
                 if (!pawn.CanReach(station, PathEndMode.InteractionCell, Danger.Deadly)) continue;
 
-                var comp = station.GetComp<CompRobotRepairStation>();
+                var comp = station.GetComp<CompIronCradle>();
                 float maxRange = comp?.Props.maxRepairRange ?? 30f;
 
                 float dist = pawn.Position.DistanceTo(station.Position);
@@ -174,13 +174,13 @@ namespace RobotRepairStation
 
         /// <summary>
         /// Variante de <see cref="FindBestRepairStation"/> que devuelve directamente
-        /// el <see cref="CompRobotRepairStation"/> de la mejor estación encontrada.
+        /// el <see cref="CompIronCradle"/> de la mejor estación encontrada.
         /// Útil cuando solo se necesitan las propiedades de configuración del comp.
         /// </summary>
-        public static CompRobotRepairStation FindBestRepairStationComp(Pawn pawn)
+        public static CompIronCradle FindBestRepairStationComp(Pawn pawn)
         {
             var station = FindBestRepairStation(pawn);
-            return station?.GetComp<CompRobotRepairStation>();
+            return station?.GetComp<CompIronCradle>();
         }
     }
 }

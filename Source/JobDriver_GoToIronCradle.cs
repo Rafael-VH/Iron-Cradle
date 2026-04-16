@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     /// <summary>
-    /// Driver del job RRS_GoToRepairStation.
+    /// Driver del job IC_GoToIronCradle.
     /// Mueve el mecanoide hasta la InteractionCell de la estación y, al llegar,
-    /// intenta registrarse como ocupante y encola RRS_RepairAtStation.
+    /// intenta registrarse como ocupante y encola IC_RepairAtIronCradle.
     ///
     /// Flujo de toils:
     ///   1. GotoThing — caminar hasta la celda de interacción.
@@ -15,8 +15,8 @@ namespace RobotRepairStation
     /// </summary>
     public class JobDriver_GoToIronCradle : JobDriver
     {
-        private Building_RobotRepairStation Station =>
-            (Building_RobotRepairStation)job.targetA.Thing;
+        private Building_IronCradle Station =>
+            (Building_IronCradle)job.targetA.Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
@@ -41,7 +41,7 @@ namespace RobotRepairStation
                 if (Station.TryAcceptOccupant(pawn))
                 {
                     // Ocupante registrado → encolar job de reparación y terminar.
-                    var repairJob = JobMaker.MakeJob(RRS_JobDefOf.RRS_RepairAtStation, Station);
+                    var repairJob = JobMaker.MakeJob(IC_JobDefOf.IC_RepairAtIronCradle, Station);
                     pawn.jobs.jobQueue.EnqueueFirst(repairJob);
                     EndJobWith(JobCondition.Succeeded);
                 }

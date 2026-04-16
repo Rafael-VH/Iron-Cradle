@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     /// <summary>
     /// MapComponent que mantiene un registro centralizado de todas las
-    /// Building_RobotRepairStation presentes en el mapa.
+    /// Building_IronCradle presentes en el mapa.
     ///
     /// RimWorld instancia automáticamente este componente al crear o cargar cada mapa,
     /// gracias a la declaración en 1.6/Defs/MapComponentDefs/MapComponentDefs.xml.
@@ -14,11 +14,11 @@ namespace RobotRepairStation
     /// </summary>
     public class IronCradleTracker : MapComponent
     {
-        private readonly List<Building_RobotRepairStation> stations =
-            new List<Building_RobotRepairStation>();
+        private readonly List<Building_IronCradle> stations =
+            new List<Building_IronCradle>();
 
         /// <summary>Vista de solo lectura de todas las estaciones registradas en este mapa.</summary>
-        public IReadOnlyList<Building_RobotRepairStation> AllStations => stations;
+        public IReadOnlyList<Building_IronCradle> AllStations => stations;
 
         public IronCradleTracker(Map map) : base(map) { }
 
@@ -39,9 +39,9 @@ namespace RobotRepairStation
 
         /// <summary>
         /// Registra una estación en este mapa. Llamado desde
-        /// <see cref="Building_RobotRepairStation.SpawnSetup"/>.
+        /// <see cref="Building_IronCradle.SpawnSetup"/>.
         /// </summary>
-        public void Register(Building_RobotRepairStation station)
+        public void Register(Building_IronCradle station)
         {
             if (!stations.Contains(station))
                 stations.Add(station);
@@ -49,9 +49,9 @@ namespace RobotRepairStation
 
         /// <summary>
         /// Desregistra una estación de este mapa. Llamado desde
-        /// <see cref="Building_RobotRepairStation.DeSpawn"/>.
+        /// <see cref="Building_IronCradle.DeSpawn"/>.
         /// </summary>
-        public void Deregister(Building_RobotRepairStation station)
+        public void Deregister(Building_IronCradle station)
         {
             stations.Remove(station);
         }

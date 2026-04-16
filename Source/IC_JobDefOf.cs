@@ -1,7 +1,7 @@
 using RimWorld;
 using Verse;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     /// <summary>
     /// Registro estático de los JobDefs propios del mod.
@@ -13,15 +13,15 @@ namespace RobotRepairStation
     {
         /// <summary>
         /// Job de navegación: el mecanoide se desplaza hasta la InteractionCell de la estación.
-        /// Emitido por JobGiver_GoToRepairStation, ejecutado por JobDriver_GoToRepairStation.
+        /// Emitido por JobGiver_GoToIronCradle, ejecutado por JobDriver_GoToIronCradle.
         /// </summary>
-        public static JobDef RRS_GoToRepairStation;
+        public static JobDef IC_GoToIronCradle;
 
         /// <summary>
-        /// Job de reparación: el mecanoide permanece en la estación mientras CompRobotRepairStation
+        /// Job de reparación: el mecanoide permanece en la estación mientras CompIronCradle
         /// aplica curación tick a tick. Termina cuando CurrentOccupant pasa a null.
         /// </summary>
-        public static JobDef RRS_RepairAtStation;
+        public static JobDef IC_RepairAtIronCradle;
 
         static IC_JobDefOf()
         {

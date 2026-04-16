@@ -1,7 +1,7 @@
 using RimWorld;
 using Verse;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     // ═══════════════════════════════════════════════════════════════════════════
     //  COMP PROPERTIES
@@ -17,7 +17,7 @@ namespace RobotRepairStation
     /// el valor ajustable por el jugador vive en CompRobotRepairStation.repairThreshold
     /// (campo serializado). Este valor de props actúa solo como valor inicial por defecto.
     /// </summary>
-    public class CompProperties_RobotRepairStation : CompProperties
+    public class CompProperties_IronCradle : CompProperties
     {
         /// <summary>
         /// Umbral de salud inicial (0–1). El jugador puede sobreescribirlo
@@ -41,9 +41,9 @@ namespace RobotRepairStation
         /// <summary>Distancia máxima en celdas para que un mecanoide detecte esta estación.</summary>
         public float maxRepairRange = 30f;
 
-        public CompProperties_RobotRepairStation()
+        public CompProperties_IronCradle()
         {
-            compClass = typeof(CompRobotRepairStation);
+            compClass = typeof(CompIronCradle);
         }
     }
 
@@ -53,9 +53,9 @@ namespace RobotRepairStation
     // ═══════════════════════════════════════════════════════════════════════════
 
     /// <summary>
-    /// Componente adjunto a <see cref="Building_RobotRepairStation"/>.
+    /// Componente adjunto a <see cref="Building_IronCradle"/>.
     /// Aplica curación a las lesiones activas del mecanoide docked cada
-    /// <see cref="CompProperties_RobotRepairStation.repairTickInterval"/> ticks.
+    /// <see cref="CompProperties_IronCradle.repairTickInterval"/> ticks.
     ///
     /// Responsabilidades de este comp:
     /// - Mantener el umbral de salud ajustado por el jugador (<see cref="repairThreshold"/>),
@@ -63,11 +63,11 @@ namespace RobotRepairStation
     /// - Aplicar curación tick a tick cuando hay ocupante con acero disponible.
     /// - Disparar la carta de reparación completa al llegar al 99 % de salud.
     ///
-    /// El mismo offset de tick usado en <see cref="Building_RobotRepairStation.Tick"/>
+    /// El mismo offset de tick usado en <see cref="Building_IronCradle.Tick"/>
     /// se aplica aquí para que ambos ciclos (consumo de acero y curación) estén
     /// sincronizados y distribuidos uniformemente entre múltiples instancias.
     /// </summary>
-    public class CompRobotRepairStation : ThingComp
+    public class CompIronCradle : ThingComp
     {
         // ─── Estado serializable ──────────────────────────────────────────────
 
@@ -80,11 +80,11 @@ namespace RobotRepairStation
 
         // ─── Propiedades ──────────────────────────────────────────────────────
 
-        public CompProperties_RobotRepairStation Props =>
-            (CompProperties_RobotRepairStation)props;
+        public CompProperties_IronCradle Props =>
+            (CompProperties_IronCradle)props;
 
-        private Building_RobotRepairStation Station =>
-            (Building_RobotRepairStation)parent;
+        private Building_IronCradle Station =>
+            (Building_IronCradle)parent;
 
         // ─── Ciclo de vida ────────────────────────────────────────────────────
 
@@ -142,7 +142,7 @@ namespace RobotRepairStation
         // ─── Lógica de curación ───────────────────────────────────────────────
 
         /// <summary>
-        /// Aplica <see cref="CompProperties_RobotRepairStation.repairSpeedPerTick"/> a cada
+        /// Aplica <see cref="CompProperties_IronCradle.repairSpeedPerTick"/> a cada
         /// <see cref="Hediff_Injury"/> activa (no permanente) del mecanoide.
         ///
         /// Se itera directamente sobre <c>hediffs</c> sin crear una lista intermedia
@@ -167,7 +167,7 @@ namespace RobotRepairStation
 
         /// <summary>
         /// Notifica al jugador mediante una carta persistente y libera el slot de ocupante
-        /// cuando la reparación termina. El driver de <see cref="JobDriver_RepairAtStation"/>
+        /// cuando la reparación termina. El driver de <see cref="JobDriver_RepairAtIronCradle"/>
         /// detecta <c>CurrentOccupant == null</c> en su <c>tickAction</c> y finaliza el job.
         /// </summary>
         private void OnRepairComplete(Pawn mechanoid)

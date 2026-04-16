@@ -2,24 +2,24 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     /// <summary>
-    /// Driver del job RRS_RepairAtStation.
-    /// Mantiene al mecanoide quieto en la estación mientras CompRobotRepairStation
+    /// Driver del job IC_RepairAtIronCradle.
+    /// Mantiene al mecanoide quieto en la estación mientras CompIronCradle
     /// aplica curación tick a tick. Termina cuando CurrentOccupant pasa a null.
     ///
-    /// Este job es siempre encolado por JobDriver_GoToRepairStation.
+    /// Este job es siempre encolado por JobDriver_GoToIronCradle.
     /// IsContinuation() devuelve true para ese job, permitiendo a RimWorld
     /// reutilizar la reserva existente sin exigir una nueva.
     /// </summary>
     public class JobDriver_RepairAtIronCradle : JobDriver
     {
-        private Building_RobotRepairStation Station =>
-            (Building_RobotRepairStation)job.targetA.Thing;
+        private Building_IronCradle Station =>
+            (Building_IronCradle)job.targetA.Thing;
 
         /// <summary>
-        /// No reserva de nuevo: la reserva ya existe desde JobDriver_GoToRepairStation.
+        /// No reserva de nuevo: la reserva ya existe desde JobDriver_GoToIronCradle.
         /// IsContinuation() garantiza que RimWorld la reutiliza.
         /// </summary>
         public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
@@ -64,7 +64,7 @@ namespace RobotRepairStation
         /// </summary>
         public override bool IsContinuation(Job j)
         {
-            return j.def == RRS_JobDefOf.RRS_GoToRepairStation
+            return j.def == IC_JobDefOf.IC_GoToIronCradle
                 && j.targetA == job.targetA;
         }
     }

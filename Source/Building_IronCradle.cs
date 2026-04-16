@@ -6,7 +6,7 @@ using Verse;
 using Verse.AI;
 using System.Linq;
 
-namespace RobotRepairStation
+namespace IronCradle
 {
     /// <summary>
     /// Edificio principal del Robot Repair Station.
@@ -33,7 +33,7 @@ namespace RobotRepairStation
 
         // ─── Cachés de comps (inicializados en SpawnSetup) ───────────────────
 
-        private CompProperties_RobotRepairStation cachedCompProps;
+        private CompProperties_IronCradle cachedCompProps;
         private CompPowerTrader   cachedPowerComp;
         private CompRefuelable    cachedRefuelComp;   // ← nuevo
 
@@ -43,7 +43,7 @@ namespace RobotRepairStation
         /// Propiedades de configuración del comp de reparación.
         /// El valor se garantiza tras SpawnSetup; acceder antes puede devolver null.
         /// </summary>
-        public CompProperties_RobotRepairStation RepairProps => cachedCompProps;
+        public CompProperties_IronCradle RepairProps => cachedCompProps;
 
         /// <summary>Devuelve <c>true</c> si hay un mecanoide docked y está vivo.</summary>
         public bool IsOccupied => currentOccupant != null && !currentOccupant.Dead;
@@ -79,9 +79,9 @@ namespace RobotRepairStation
             // Cachear comps una sola vez para evitar búsquedas lineales en cada tick.
             cachedPowerComp  = GetComp<CompPowerTrader>();
             cachedRefuelComp = GetComp<CompRefuelable>();      // ← nuevo
-            cachedCompProps  = GetComp<CompRobotRepairStation>()?.Props;
+            cachedCompProps  = GetComp<CompIronCradle>()?.Props;
 
-            RepairStationTracker.GetOrCreate(map).Register(this);
+            IronCradleTracker.GetOrCreate(map).Register(this);
         }
 
         /// <summary>
@@ -95,16 +95,16 @@ namespace RobotRepairStation
             if (currentOccupant == null) return;
 
             bool hasActiveJob =
-                currentOccupant.CurJob?.def == RRS_JobDefOf.RRS_RepairAtStation   ||
-                currentOccupant.CurJob?.def == RRS_JobDefOf.RRS_GoToRepairStation  ||
+                currentOccupant.CurJob?.def == IC_JobDefOf.IC_RepairAtIronCradle   ||
+                currentOccupant.CurJob?.def == IC_JobDefOf.IC_GoToIronCradle  ||
                 (currentOccupant.jobs?.jobQueue?.Any(
-                    qj => qj.job?.def == RRS_JobDefOf.RRS_RepairAtStation ||
-                          qj.job?.def == RRS_JobDefOf.RRS_GoToRepairStation) ?? false);
+                    qj => qj.job?.def == IC_JobDefOf.IC_RepairAtIronCradle ||
+                          qj.job?.def == IC_JobDefOf.IC_GoToIronCradle) ?? false);
 
             if (!hasActiveJob)
             {
                 Log.Warning(
-                   $"[RobotRepairStation] {currentOccupant.LabelShort} estaba registrado en" +
+                   $"[IronCradle] {currentOccupant.LabelShort} estaba registrado en" +
                    $" {Label} pero no tiene el job de reparación activo ni en cola. Limpiando estado.");
                 currentOccupant = null;
             }
@@ -114,7 +114,7 @@ namespace RobotRepairStation
         {
             // Map puede ser null en estados intermedios (minificación, caravanas).
             if (Map != null)
-                RepairStationTracker.GetOrCreate(Map).Deregister(this);
+                IronCradleTracker.GetOrCreate(Map).Deregister(this);
 
             EjectOccupant();
             base.DeSpawn(mode);
@@ -143,7 +143,7 @@ namespace RobotRepairStation
         /// El offset derivado de <c>thingIDNumber.HashOffset()</c> distribuye los
         /// ticks de múltiples estaciones a lo largo del frame para evitar picos de CPU.
         ///
-        /// <see cref="CompRobotRepairStation.CompTick"/> aplica la curación en el
+        /// <see cref="CompIronCradle.CompTick"/> aplica la curación en el
         /// mismo intervalo y verifica <see cref="HasSteel"/> antes de curar.
         /// </summary>
         protected override void Tick()
@@ -179,7 +179,7 @@ namespace RobotRepairStation
         /// <summary>
         /// Limpia <c>currentOccupant</c> cuando la reparación se completa normalmente.
         /// El driver detecta el <c>null</c> en su <c>tickAction</c> y termina el job.
-        /// Solo debe llamarse desde <see cref="CompRobotRepairStation"/>.
+        /// Solo debe llamarse desde <see cref="CompIronCradle"/>.
         /// </summary>
         public void NotifyOccupantLeft()
         {
@@ -198,7 +198,7 @@ namespace RobotRepairStation
             Pawn occupant   = currentOccupant;
             currentOccupant = null;
 
-            if (occupant.CurJob?.def == RRS_JobDefOf.RRS_RepairAtStation)
+            if (occupant.CurJob?.def == IC_JobDefOf.IC_RepairAtIronCradle)
                 occupant.jobs.EndCurrentJob(JobCondition.InterruptForced);
         }
 
@@ -207,7 +207,7 @@ namespace RobotRepairStation
         // ═══════════════════════════════════════════════════════════════════════
 
         /// <summary>
-        /// Descuenta <see cref="CompProperties_RobotRepairStation.steelPerRepairCycle"/>
+        /// Descuenta <see cref="CompProperties_IronCradle.steelPerRepairCycle"/>
         /// unidades del depósito de acero gestionado por <see cref="CompRefuelable"/>.
         ///
         /// Si el depósito no tiene suficiente acero:
@@ -224,7 +224,7 @@ namespace RobotRepairStation
 
             if (cachedRefuelComp == null)
             {
-                Log.Error("[RobotRepairStation] CompRefuelable no encontrado en la estación. Verifica el ThingDef.");
+                Log.Error("[IronCradle] CompRefuelable no encontrado en la estación. Verifica el ThingDef.");
                 return;
             }
 
