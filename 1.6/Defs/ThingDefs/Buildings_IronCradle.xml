@@ -2,10 +2,10 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>RRS_RobotRepairStation</defName>
+    <defName>IC_RobotRepairStation</defName>
     <label>robot repair station</label>
     <description>A specialized docking station that repairs damaged mechanoids. When a mechanoid's health drops below the configured threshold, it will autonomously navigate to this station and undergo automated repair using steel components. Requires a constant power supply to function.</description>
-    <thingClass>RobotRepairStation.Building_RobotRepairStation</thingClass>
+    <thingClass>IronCradle.Building_IronCradle</thingClass>
 
     <graphicData>
       <texPath>Things/Buildings/IronCradle</texPath>
@@ -74,7 +74,7 @@
         <targetFuelLevelConfigurable>false</targetFuelLevelConfigurable>
       </li>
 
-      <li Class="RobotRepairStation.CompProperties_RobotRepairStation">
+      <li Class="IronCradle.CompProperties_IronCradle">
         <repairHealthThreshold>0.5</repairHealthThreshold>
         <repairSpeedPerTick>0.0005</repairSpeedPerTick>
         <steelPerRepairCycle>1</steelPerRepairCycle>
@@ -89,7 +89,7 @@
     </building>
 
     <researchPrerequisites>
-      <li>RRS_RobotRepairResearch</li>
+      <li>IC_IronCradleResearch</li>
     </researchPrerequisites>
 
     <designationCategory>Misc</designationCategory>

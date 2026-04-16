@@ -2,7 +2,7 @@
 <Defs>
 
   <ResearchProjectDef>
-    <defName>RRS_RobotRepairResearch</defName>
+    <defName>IC_IronCradleResearch</defName>
     <label>mechanoid repair systems</label>
     <description>Develop automated repair systems capable of diagnosing and restoring damaged mechanoids. Unlocks the Robot Repair Station, which allows mechanoids to self-repair when their health is critically low.</description>
     <baseCost>1200</baseCost>

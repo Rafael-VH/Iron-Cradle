@@ -2,8 +2,8 @@
 <Defs>
 
   <MapComponentDef>
-    <defName>RRS_RepairStationTrackerDef</defName>
-    <compClass>RobotRepairStation.RepairStationTracker</compClass>
+    <defName>IC_IronCradleTrackerDef</defName>
+    <compClass>IronCradle.IronCradleTracker</compClass>
   </MapComponentDef>
 
 </Defs>

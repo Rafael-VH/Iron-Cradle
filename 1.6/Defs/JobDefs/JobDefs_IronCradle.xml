@@ -2,22 +2,22 @@
 <Defs>
 
   <JobDef>
-    <defName>RRS_GoToRepairStation</defName>
-    <label>go to repair station</label>
-    <description>Go to a robot repair station for self-repair.</description>
-    <driverClass>RobotRepairStation.JobDriver_GoToRepairStation</driverClass>
-    <reportString>going to repair station.</reportString>
+    <defName>IC_GoToIronCradle</defName>
+    <label>go to iron cradle</label>
+    <description>Go to an iron cradle for self-repair.</description>
+    <driverClass>IronCradle.JobDriver_GoToIronCradle</driverClass>
+    <reportString>going to iron cradle.</reportString>
     <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
     <playerInterruptible>true</playerInterruptible>
     <checkOverrideOnDamage>false</checkOverrideOnDamage>
   </JobDef>
 
   <JobDef>
-    <defName>RRS_RepairAtStation</defName>
-    <label>repairing at station</label>
-    <description>Being repaired at the robot repair station.</description>
-    <driverClass>RobotRepairStation.JobDriver_RepairAtStation</driverClass>
-    <reportString>repairing at station.</reportString>
+    <defName>IC_RepairAtIronCradle</defName>
+    <label>repairing at iron cradle</label>
+    <description>Being repaired at the iron cradle.</description>
+    <driverClass>IronCradle.JobDriver_RepairAtIronCradle</driverClass>
+    <reportString>repairing at iron cradle.</reportString>
     <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
     <playerInterruptible>true</playerInterruptible>
     <checkOverrideOnDamage>false</checkOverrideOnDamage>
