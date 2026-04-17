@@ -8,10 +8,6 @@
 		<li>1.6</li>
 	</supportedVersions>
 
-	<!--
-		Declarar Biotech como dependencia obligatoria impide que el mod se active
-		sin el DLC. El nodo loadAfter garantiza el orden de carga correcto.
-	-->
 	<modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Biotech</packageId>
@@ -43,9 +39,11 @@ Adds the <b>Iron Cradle</b> — an automated repair station for Biotech mechanoi
 <b>Important notes:</b>
 • Repairs only restore missing health — <i>lost body parts or permanent injuries are not regenerated</i>.
 • The cradle must be powered and stocked with Steel to function.
-• Fully configurable via Mod Settings: repair threshold, steel consumption rate, and repair speed.
+• Fully configurable via XML: repair threshold, steel consumption rate, and repair speed.
 
----
+<color=#FFD700>Requires RimWorld 1.6 + Biotech DLC.</color>
+
+────────────────────────────────────────
 
 Añade la <b>Cuna de Hierro</b>, una estación de reparación automatizada para mecanoides de Biotech.
 
@@ -57,9 +55,25 @@ Añade la <b>Cuna de Hierro</b>, una estación de reparación automatizada para 
 <b>Notas importantes:</b>
 • Las reparaciones solo recuperan la salud perdida; <i>las partes del cuerpo perdidas o las lesiones permanentes no se regeneran</i>.
 • La cuna debe estar alimentada y abastecida de Acero para funcionar.
-• Totalmente configurable mediante la configuración del mod: umbral de reparación, tasa de consumo de acero y velocidad de reparación.
+• Totalmente configurable mediante XML: umbral de reparación, tasa de consumo de acero y velocidad de reparación.
 
-<color=#FFD700>Requires RimWorld 1.6 + Biotech DLC.</color>
+<color=#FFD700>Requiere RimWorld 1.6 + DLC Biotech.</color>
+
+────────────────────────────────────────
+
+Adiciona o <b>Berço de Ferro</b>, uma estação de reparo automatizada para mecanoídes do Biotech.
+
+<b>Como funciona:</b>
+• Quando a saúde de um mecanoíde cai abaixo de um limite configurável (padrão: 50%), ele navegará autonomamente até o Berço de Ferro disponível mais próximo.
+• O mecanoíde entra em modo de autorreparação, consumindo <b>Aço</b> e <b>energia</b> ao longo do tempo para restaurar os pontos de vida perdidos.
+• Vários mecanoídes podem entrar na fila para reparo; a prioridade é por ordem de chegada.
+
+<b>Notas importantes:</b>
+• Os reparos apenas restauram a saúde perdida — <i>partes do corpo perdidas ou lesões permanentes não são regeneradas</i>.
+• O berço deve estar alimentado e abastecido com Aço para funcionar.
+• Totalmente configurável via XML: limite de reparo, taxa de consumo de aço e velocidade de reparo.
+
+<color=#FFD700>Requer RimWorld 1.6 + DLC Biotech.</color>
 ]]>
 	</description>
 </ModMetaData>
