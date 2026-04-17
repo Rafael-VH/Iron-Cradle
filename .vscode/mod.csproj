@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net480</TargetFramework>
     <LangVersion>9</LangVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RootNamespace>IronCradle</RootNamespace>
