@@ -2,8 +2,8 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>IC_RobotRepairStation</defName>
-    <label>robot repair station</label>
+    <defName>IC_IronCradle</defName>
+    <label>iron cradle</label>
     <description>A specialized docking station that repairs damaged mechanoids. When a mechanoid's health drops below the configured threshold, it will autonomously navigate to this station and undergo automated repair using steel components. Requires a constant power supply to function.</description>
     <thingClass>IronCradle.Building_IronCradle</thingClass>
 

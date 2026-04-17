@@ -9,12 +9,12 @@ namespace IronCradle
 
     /// <summary>
     /// Propiedades configurables del componente de reparación.
-    /// Leídas desde el XML del ThingDef (bloque CompProperties_RobotRepairStation).
+    /// Leídas desde el XML del ThingDef (bloque CompProperties_IronCradle).
     /// Todos los campos tienen valores por defecto para compatibilidad con saves
     /// que no tengan el campo explícito.
     ///
     /// NOTA: repairHealthThreshold NO se lee aquí en tiempo de ejecución;
-    /// el valor ajustable por el jugador vive en CompRobotRepairStation.repairThreshold
+    /// el valor ajustable por el jugador vive en CompIronCradle.repairThreshold
     /// (campo serializado). Este valor de props actúa solo como valor inicial por defecto.
     /// </summary>
     public class CompProperties_IronCradle : CompProperties
@@ -22,7 +22,7 @@ namespace IronCradle
         /// <summary>
         /// Umbral de salud inicial (0–1). El jugador puede sobreescribirlo
         /// en juego mediante el gizmo; el valor real en tiempo de ejecución
-        /// reside en <see cref="CompRobotRepairStation.repairThreshold"/>.
+        /// reside en <see cref="CompIronCradle.repairThreshold"/>.
         /// </summary>
         public float repairHealthThreshold = 0.5f;
 
@@ -174,8 +174,8 @@ namespace IronCradle
         {
             // Carta persistente (aparece en el historial de letras, no desaparece sola).
             Find.LetterStack.ReceiveLetter(
-                "RRS_LetterRepairCompleteLabel".Translate(),
-                "RRS_LetterRepairCompleteText".Translate(mechanoid.LabelShort),
+                "CI_LetterRepairCompleteLabel".Translate(),
+                "CI_LetterRepairCompleteText".Translate(mechanoid.LabelShort),
                 LetterDefOf.PositiveEvent,
                 mechanoid
             );

@@ -2,30 +2,30 @@
 <LanguageData>
 
   <!-- Inspector Panel -->
-  <RRS_InspectorCurrentOccupant>Reparando: {0}</RRS_InspectorCurrentOccupant>
-  <RRS_InspectorEmpty>En espera - aguardando mecanoide dañado</RRS_InspectorEmpty>
-  <RRS_InspectorNoPower>Sin energia - estacion fuera de servicio</RRS_InspectorNoPower>
-  <RRS_InspectorNoSteel>Sin acero - reparacion detenida</RRS_InspectorNoSteel>
-  <RRS_InspectorETA>Tiempo estimado restante: {0}</RRS_InspectorETA>
-  <RRS_InspectorThreshold>Umbral de reparacion: {0}</RRS_InspectorThreshold>
-  <RRS_InspectorPriority>Prioridad de estacion: {0}</RRS_InspectorPriority>
+  <IC_InspectorCurrentOccupant>Reparando: {0}</IC_InspectorCurrentOccupant>
+  <IC_InspectorEmpty>En espera - aguardando mecanoide dañado</IC_InspectorEmpty>
+  <IC_InspectorNoPower>Sin energia - estacion fuera de servicio</IC_InspectorNoPower>
+  <IC_InspectorNoSteel>Sin acero - reparacion detenida</IC_InspectorNoSteel>
+  <IC_InspectorETA>Tiempo estimado restante: {0}</IC_InspectorETA>
+  <IC_InspectorThreshold>Umbral de reparacion: {0}</IC_InspectorThreshold>
+  <IC_InspectorPriority>Prioridad de estacion: {0}</IC_InspectorPriority>
 
   <!-- Gizmos -->
-  <RRS_GizmoSetThreshold>Ajustar umbral de reparacion</RRS_GizmoSetThreshold>
-  <RRS_GizmoSetThresholdDesc>Establece el porcentaje de salud a partir del cual los mecanoides buscaran esta estacion de reparacion.</RRS_GizmoSetThresholdDesc>
-  <RRS_GizmoPriority>Prioridad de estacion</RRS_GizmoPriority>
-  <RRS_GizmoPriorityDesc>Establece la prioridad de esta estacion de reparacion. Los mecanoides prefieren la estacion con el numero de prioridad mas bajo (1 = maxima prioridad). Haz clic para ciclar entre los valores 1-9.</RRS_GizmoPriorityDesc>
-  <RRS_GizmoEjectOccupant>Expulsar mecanoide</RRS_GizmoEjectOccupant>
-  <RRS_GizmoEjectOccupantDesc>Obliga al mecanoide actual a abandonar la estacion de reparacion.</RRS_GizmoEjectOccupantDesc>
+  <IC_GizmoSetThreshold>Ajustar umbral de reparacion</IC_GizmoSetThreshold>
+  <IC_GizmoSetThresholdDesc>Establece el porcentaje de salud a partir del cual los mecanoides buscaran esta estacion de reparacion.</IC_GizmoSetThresholdDesc>
+  <IC_GizmoPriority>Prioridad de estacion</IC_GizmoPriority>
+  <IC_GizmoPriorityDesc>Establece la prioridad de esta estacion de reparacion. Los mecanoides prefieren la estacion con el numero de prioridad mas bajo (1 = maxima prioridad). Haz clic para ciclar entre los valores 1-9.</IC_GizmoPriorityDesc>
+  <IC_GizmoEjectOccupant>Expulsar mecanoide</IC_GizmoEjectOccupant>
+  <IC_GizmoEjectOccupantDesc>Obliga al mecanoide actual a abandonar la estacion de reparacion.</IC_GizmoEjectOccupantDesc>
 
   <!-- Letters / Notifications -->
-  <RRS_LetterRepairCompleteLabel>Reparacion completada</RRS_LetterRepairCompleteLabel>
-  <RRS_LetterRepairCompleteText>{0} ha sido reparado por completo en la estacion de reparacion de robots.</RRS_LetterRepairCompleteText>
-  <RRS_LetterNoSteelLabel>Reparacion interrumpida</RRS_LetterNoSteelLabel>
-  <RRS_LetterNoSteelText>La estacion de reparacion de robots se ha quedado sin acero y no puede continuar reparando a {0}.</RRS_LetterNoSteelText>
+  <IC_LetterRepairCompleteLabel>Reparacion completada</IC_LetterRepairCompleteLabel>
+  <IC_LetterRepairCompleteText>{0} ha sido reparado por completo en la estacion de reparacion de robots.</IC_LetterRepairCompleteText>
+  <IC_LetterNoSteelLabel>Reparacion interrumpida</IC_LetterNoSteelLabel>
+  <IC_LetterNoSteelText>La estacion de reparacion de robots se ha quedado sin acero y no puede continuar reparando a {0}.</IC_LetterNoSteelText>
 
   <!-- Stat Labels -->
-  <RRS_StatRepairSpeed>Velocidad de reparacion</RRS_StatRepairSpeed>
-  <RRS_StatRepairSpeedDesc>Con que rapidez repara esta estacion la salud de los mecanoides por dia.</RRS_StatRepairSpeedDesc>
+  <IC_StatRepairSpeed>Velocidad de reparacion</IC_StatRepairSpeed>
+  <IC_StatRepairSpeedDesc>Con que rapidez repara esta estacion la salud de los mecanoides por dia.</IC_StatRepairSpeedDesc>
 
 </LanguageData>

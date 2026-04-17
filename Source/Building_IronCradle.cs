@@ -16,7 +16,7 @@ namespace IronCradle
     /// El acero ya no se busca manualmente en el mapa: RimWorld gestiona automáticamente el reabastecimiento mediante trabajos de transporte
     /// asignados a colonos, igual que el generador de combustible.
     ///
-    /// La lógica de curación tick a tick reside en CompRobotRepairStation para mantener las responsabilidades separadas.
+    /// La lógica de curación tick a tick reside en CompIronCradle para mantener las responsabilidades separadas.
     /// </summary>
     public class Building_IronCradle : Building
     {
@@ -236,7 +236,7 @@ namespace IronCradle
             {
                 // Sin acero suficiente: notificar y expulsar.
                 Messages.Message(
-                    "RRS_LetterNoSteelText".Translate(currentOccupant?.LabelShort ?? "mechanoid"),
+                    "IC_LetterNoSteelText".Translate(currentOccupant?.LabelShort ?? "mechanoid"),
                     this,
                     MessageTypeDefOf.NegativeEvent
                 );
@@ -259,8 +259,8 @@ namespace IronCradle
             {
                 yield return new Command_Action
                 {
-                    defaultLabel = "RRS_GizmoEjectOccupant".Translate(),
-                    defaultDesc  = "RRS_GizmoEjectOccupantDesc".Translate(),
+                    defaultLabel = "IC_GizmoEjectOccupant".Translate(),
+                    defaultDesc  = "IC_GizmoEjectOccupantDesc".Translate(),
                     icon         = ContentFinder<Texture2D>.Get("UI/Commands/LaunchReport"),
                     action       = EjectOccupant
                 };
@@ -281,18 +281,18 @@ namespace IronCradle
 
             if (!HasPower)
             {
-                sb.AppendLine("RRS_InspectorNoPower".Translate());
+                sb.AppendLine("IC_InspectorNoPower".Translate());
             }
             else if (IsOccupied)
             {
-                sb.AppendLine("RRS_InspectorCurrentOccupant".Translate(currentOccupant.LabelShort));
+                sb.AppendLine("IC_InspectorCurrentOccupant".Translate(currentOccupant.LabelShort));
                 sb.AppendLine($"Health: {currentOccupant.health.summaryHealth.SummaryHealthPercent * 100f:F0}%");
                 if (!HasSteel)
-                    sb.AppendLine("RRS_InspectorNoSteel".Translate());
+                    sb.AppendLine("IC_InspectorNoSteel".Translate());
             }
             else
             {
-                sb.AppendLine("RRS_InspectorEmpty".Translate());
+                sb.AppendLine("IC_InspectorEmpty".Translate());
             }
 
             // El nivel de acero detallado ya lo muestra CompRefuelable en su propio
